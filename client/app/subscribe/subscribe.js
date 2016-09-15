@@ -15,7 +15,7 @@ class Subscribe extends Component {
 	}
 
  	closeModal() {
-	    this.setState({modalIsOpen: false});
+	    this.setState({modalIsOpen: false,errors: {} });
 	}
 
 	handleChange(e){
