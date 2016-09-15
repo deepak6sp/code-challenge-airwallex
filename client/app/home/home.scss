@@ -1,0 +1,29 @@
+@import 'base';
+main{
+	display:flex;
+	align-items:center;
+	color:$black;
+	height:70vh;
+	justify-content:center;
+	text-align:center;
+	h1{
+		letter-spacing:1px;
+	}
+}
+button{
+	background:$white;
+	border:1px solid $primary;
+	border-radius:5px;
+	padding:10px;
+	font-size:0.8rem;
+	&:focus{
+		outline:none;
+	}
+	&:hover{
+		cursor:pointer;
+		background:$primary;
+		color:$white;
+	}
+	
+}
+

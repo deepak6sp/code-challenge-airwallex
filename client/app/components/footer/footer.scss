@@ -1,0 +1,14 @@
+@import "base";
+footer{
+	background-color : $primary;
+	color:$white;
+	height:15vh;
+	display:flex;
+	width:100%;
+	align-items:center;
+	justify-content:center;
+	text-align:center;
+	p{
+		line-height:0.6rem;
+	}
+}

@@ -1,0 +1,12 @@
+@import "base";
+header{
+	align-items:center;
+	background-color : $primary;
+	color:$white;
+	display:flex;
+	height:15vh;
+	.brand-name{
+		padding-left:10%;
+		font-size:1.6rem;
+	}
+}
