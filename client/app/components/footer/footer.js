@@ -1,19 +1,16 @@
 import './footer.scss';
 
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
 
-class Footer extends Component {
-    render() {
-        return ( 
-        	<footer> 
-        		<div>
-	        		<p> Made in Melbourne </p>
-	        		<p> @ 2016 Broccoli and Co. All rights reversed </p>
-	        	</div>
-        	</footer>
-        );
-    }
+const Footer = () => {
+    return ( 
+    	<footer> 
+    		<div>
+        		<p> Made in Melbourne </p>
+        		<p> @ 2016 Broccoli and Co. All rights reversed </p>
+        	</div>
+    	</footer>
+    );
 }
  
 export default Footer

@@ -1,16 +1,13 @@
 import './header.scss';
 
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
 
-class Header extends Component {
-    render() {
-        return ( 
-        	<header> 
-        		<p className="brand-name"> Brocollo and Co. </p>
-        	</header>
-        );
-    }
+const Header = () =>{
+    return ( 
+    	<header> 
+    		<p className="brand-name"> Brocollo and Co. </p>
+    	</header>
+    );
 }
  
 export default Header

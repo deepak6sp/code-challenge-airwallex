@@ -1,7 +1,8 @@
-import React from "react";
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 
-module.exports.StandardInputText = React.createClass({
-    render: function(){
+export class StandardInputText extends Component {
+    render(){
         return (
 			<input 
 				type="text" 
@@ -13,10 +14,10 @@ module.exports.StandardInputText = React.createClass({
         	
         );
     }
-}); 
+}
 
-module.exports.StandardButton = React.createClass({
-    render: function(){
+export class StandardButton extends Component {
+    render(){
         return (
 			<button type="submit" onClick={this.props.OnClick} className={this.props.className}>
 				{this.props.children}
@@ -24,4 +25,4 @@ module.exports.StandardButton = React.createClass({
         	
         );
     }
-}); 
+} 

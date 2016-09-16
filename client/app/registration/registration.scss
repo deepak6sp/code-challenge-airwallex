@@ -1,13 +1,17 @@
 @import 'base';
 .ReactModalPortal{
 	.close{
-		float:right;
+		position:absolute;
 		border: 1px solid black;
 	    border-radius: 50px;
 	    background: white;
+	    cursor:pointer;
 	    height: 30px;
+	    margin-top:0px;
 	    width: 30px;
 	    line-height: 10px;
+	    right: 10px;
+    	top: 10px;
 	    &:focus{
 			outline:none;
 		}
@@ -22,10 +26,7 @@
 			text-align:center;
 			margin-bottom:0px;
 		}
-		hr{
-			width:30px;
-			margin-bottom:30px;
-		}
+
 		button{
 			width:100%;
 			margin-top:50px;
@@ -51,4 +52,21 @@
 			border:1px solid $red;
 		}
 	}
+	.thankyou{
+		h3{
+			margin-top:50px;
+		}
+		p{
+			margin:5px 0px;;
+		}
+		button{
+			width: 85%;
+    		margin-top: 30px;
+		}
+	}
+}
+
+hr{
+	width:30px;
+	margin-bottom:30px;
 }

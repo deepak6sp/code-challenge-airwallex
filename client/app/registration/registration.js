@@ -3,15 +3,32 @@ import './registration.scss';
 
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import axios from  "axios";
 import RegisterBox from 'react-modal';
+import ThankYou from "./registration_thank_you";
 import UI from '../components/UIComponents/ui';
 import *  as FormValidations from "./registration_validations"; 
 
 class Subscribe extends Component {
 	constructor(props){
 		super(props);
-		this.state= {modalIsOpen : false, showForm : true, fullName:"", email: "", confirmEmail: "", errors: {}};
+		this.state= {modalIsOpen : false, showForm : true, fullName:"", email: "", confirmEmail: "", errors: {}, serverError: false};
 	}
+
+	callServer(){
+		axios.post('https://l94wc2001h.execute-api.ap-southeast-2.amazonaws.com/prod/fake-auth', {
+		    name: this.state.fullName,
+		    email: this.state.email
+		}).then(response => {
+			this.setState({showForm: false});
+			console.log("showform="+this.state.showForm);
+		})
+		.catch(function (error) {
+			console.log("i am in cathch");
+			this.setState({serverError: true});
+		});
+	}
+
 	openModal(){
 		this.setState({modalIsOpen : true});
 	}
@@ -27,24 +44,24 @@ class Subscribe extends Component {
 	}
 
 
+
 	formSubmit(e){
 		e.preventDefault();
 		var errors = FormValidations.validate(this.state.fullName, this.state.email, this.state.confirmEmail);
 		this.setState({errors : errors});
 		if (Object.keys(errors).length != 0){
 			console.log("errros occured");
-			
-		}else{
+		} else {
 			console.log("no errors");
-			this.setState({showForm: false});
+			this.callServer();
 		}
 	}
-	
+
     render() {
     	var showFormType = "";
-
 		if (this.state.showForm){
 			showFormType = <form onSubmit = {this.formSubmit.bind(this)}>
+				<UI.Button OnClick={this.closeModal.bind(this)} className="close">X</UI.Button>
 	          	<h3>Request an invite</h3>
 	          	<hr/>
 	          	
@@ -77,10 +94,11 @@ class Subscribe extends Component {
 	            		Placeholder="Confirm email"
 	            	/>
 	            </div>
+	            {(this.state.serverError) && <div className="error">Error communication server. Resend?</div>}
 	            <UI.Button> Send </UI.Button>
 	        </form>
 		} else {
-			showFormType = <div>Thanks you</div>
+			showFormType = <ThankYou onClick={this.closeModal.bind(this)}/>
 		}
         return ( 
         	<div>
@@ -88,10 +106,11 @@ class Subscribe extends Component {
         		<RegisterBox
 		          isOpen={this.state.modalIsOpen}
 		          onRequestClose={this.closeModal.bind(this)}
+		          shouldCloseOnOverlayClick={false}
 		          style={customStyles} >
 
-		          	<UI.Button OnClick={this.closeModal.bind(this)} className="close">X</UI.Button>
 		          	{ showFormType }
+
 		        </RegisterBox>
         	</div>
         );
