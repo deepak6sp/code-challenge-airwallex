@@ -42,6 +42,10 @@
 				outline:none;
 			}
 		}
+		.error{
+			color:$red;
+			padding-top:10px;
+		}
 		.error + input {
 			display:block;
 			border:1px solid $red;

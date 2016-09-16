@@ -1,0 +1,1 @@
+registration_thank_you.js
