@@ -6,6 +6,9 @@ main{
 	height:70vh;
 	justify-content:center;
 	text-align:center;
+	p{
+		font-size:1rem;
+	}
 	h1{
 		letter-spacing:1px;
 	}
@@ -15,7 +18,7 @@ button{
 	border:1px solid $primary;
 	border-radius:5px;
 	padding:10px;
-	font-size:0.8rem;
+	font-size:1rem;
 	&:focus{
 		outline:none;
 	}
