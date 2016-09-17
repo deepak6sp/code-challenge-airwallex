@@ -9,7 +9,10 @@ export class StandardInputText extends Component {
 				name={this.props.Name}
 				value={this.props.Value} 
 				onChange={this.props.OnChange} 
+				onBlur = {this.props.OnBlur}
+				onKeyDown={this.props.OnKeyDown} 
 				placeholder={this.props.Placeholder}
+
 			/>
         	
         );

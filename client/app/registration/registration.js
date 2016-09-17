@@ -12,7 +12,7 @@ import *  as FormValidations from "./registration_validations";
 class Subscribe extends Component {
 	constructor(props){
 		super(props);
-		this.state= {modalIsOpen : false, showForm : true, fullName:"", email: "", confirmEmail: "", errors: {}, serverError: false};
+		this.state= {modalIsOpen : false, showForm : true, fullName:"", email: "", confirmEmail: "", errors: {}, count: 0};
 	}
 
 	callServer(){
@@ -20,12 +20,12 @@ class Subscribe extends Component {
 		    name: this.state.fullName,
 		    email: this.state.email
 		}).then(response => {
+			FormValidations.removeServerResponse();
 			this.setState({showForm: false});
-			console.log("showform="+this.state.showForm);
 		})
 		.catch(function (error) {
-			console.log("i am in cathch");
-			this.setState({serverError: true});
+			FormValidations.removeServerResponse();
+			FormValidations.addServerError();
 		});
 	}
 
@@ -34,26 +34,39 @@ class Subscribe extends Component {
 	}
 
  	closeModal() {
-	    this.setState({modalIsOpen: false, errors: {}, showForm: true });
+	    this.setState({modalIsOpen: false, errors: {}, showForm: true, fullName:"", email: "", confirmEmail: "" });
 	}
 
 	handleChange(e){
-		var state = {};
+		var state = {}, count = 0;
 	    state[e.target.name] =  e.target.value;
 	    this.setState(state);
 	}
 
+	handleBlur(e){
+		if (this.state.count > 0){
+		    var errors = FormValidations.validate(this.state.fullName, this.state.email, this.state.confirmEmail);
+			this.setState({errors : errors});
+		}
+	}
 
+	handleKeyDown(e){
+		if(e.keyCode=='13' || e.which == '13'){
+            e.preventDefault();
+            return false;
+        }
+	}
 
 	formSubmit(e){
 		e.preventDefault();
 		var errors = FormValidations.validate(this.state.fullName, this.state.email, this.state.confirmEmail);
 		this.setState({errors : errors});
-		if (Object.keys(errors).length != 0){
-			console.log("errros occured");
-		} else {
-			console.log("no errors");
+		FormValidations.removeServerResponse();
+		if (Object.keys(errors).length == 0){
+			FormValidations.addSpinner();
 			this.callServer();
+		} else {
+			this.setState({count : 1});
 		}
 	}
 
@@ -70,7 +83,9 @@ class Subscribe extends Component {
 	            	<UI.InputText 
 	            		Name = "fullName"
 	            		Value = {this.state.fullName}
-	            		OnChange={this.handleChange.bind(this)} 
+	            		OnChange={this.handleChange.bind(this)}
+	            		OnBlur={this.handleBlur.bind(this)}
+	            		OnKeyDown = {this.handleKeyDown.bind(this)}
 	            		Placeholder="Enter full name"
 	            	/>
 	            	{/*<input type="text" name="fullName" value={this.state.fullName} onChange={this.handleChange.bind(this)} placeholder="Enter full name"/>*/}
@@ -82,6 +97,8 @@ class Subscribe extends Component {
 	            		Name = "email"
 	            		Value = {this.state.email}
 	            		OnChange={this.handleChange.bind(this)} 
+	            		OnBlur={this.handleBlur.bind(this)}
+	            		OnKeyDown = {this.handleKeyDown.bind(this)}
 	            		Placeholder="Enter email"
 	            	/>
 	           	</div>
@@ -91,11 +108,14 @@ class Subscribe extends Component {
 	            		Name = "confirmEmail"
 	            		Value = {this.state.confirmEmail}
 	            		OnChange={this.handleChange.bind(this)} 
+	            		OnBlur={this.handleBlur.bind(this)}
+	            		OnKeyDown = {this.handleKeyDown.bind(this)}
 	            		Placeholder="Confirm email"
 	            	/>
 	            </div>
-	            {(this.state.serverError) && <div className="error">Error communication server. Resend?</div>}
+	            <div id="serverResponse"></div>
 	            <UI.Button> Send </UI.Button>
+	            
 	        </form>
 		} else {
 			showFormType = <ThankYou onClick={this.closeModal.bind(this)}/>
