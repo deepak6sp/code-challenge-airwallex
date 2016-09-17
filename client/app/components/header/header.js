@@ -1,6 +1,6 @@
 import './header.scss';
 
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const Header = (props) =>{
     return ( 
@@ -9,5 +9,9 @@ const Header = (props) =>{
     	</header>
     );
 }
+
+Header.propTypes = {
+  BrandName: PropTypes.string,
+};
  
 export default Header

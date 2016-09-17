@@ -17,9 +17,8 @@ describe("<Footer />", () => {
 	});
 
 	it("p with copyrights should display text", () =>{
-		const wrapper = shallow(<Footer/>);
-		const P = wrapper.find('.copyrights');
-		expect(P.text()).to.contain('@ 2016 Broccoli and Co. All rights reversed');
+		const wrapper = render(<Footer Copyrights = "@ 2016 Broccoli and Co. All rights reversed" />);
+		expect(wrapper.text()).to.contain('@ 2016 Broccoli and Co. All rights reversed');
 	});
 
 });

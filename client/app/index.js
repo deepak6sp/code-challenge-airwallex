@@ -10,7 +10,7 @@ class App extends Component {
         	<div>
         		<Header BrandName="Brocollo and Co."/>
         		<Home />
-        		<Footer />
+        		<Footer Copyrights = "@ 2016 Broccoli and Co. All rights reversed" />
         	</div>
         );
     }
