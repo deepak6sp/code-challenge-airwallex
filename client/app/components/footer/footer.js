@@ -6,8 +6,8 @@ const Footer = () => {
     return ( 
     	<footer> 
     		<div>
-        		<p class="make"> Made in Melbourne </p>
-        		<p> @ 2016 Broccoli and Co. All rights reversed </p>
+        		<p className="footerTitle"> Made with <span className="heart"></span>in Melbourne </p>
+        		<p className="copyrights"> @ 2016 Broccoli and Co. All rights reversed </p>
         	</div>
     	</footer>
     );

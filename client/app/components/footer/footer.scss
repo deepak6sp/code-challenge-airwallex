@@ -10,5 +10,11 @@ footer{
 	text-align:center;
 	p{
 		line-height:0.6rem;
+		font-style:italic;
+		.heart:before{
+			content: '\2665';
+			padding-right:5px;
+		}
 	}
+
 }

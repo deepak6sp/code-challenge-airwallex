@@ -22,7 +22,11 @@ export class StandardInputText extends Component {
 export class StandardButton extends Component {
     render(){
         return (
-			<button type="submit" onClick={this.props.OnClick} className={this.props.className}>
+			<button 
+				type="submit" 
+				onClick={this.props.OnClick}
+				id={this.props.id} 
+				className={this.props.className}>
 				{this.props.children}
 			</button>
         	

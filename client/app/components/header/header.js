@@ -2,10 +2,10 @@ import './header.scss';
 
 import React from 'react';
 
-const Header = () =>{
+const Header = (props) =>{
     return ( 
     	<header> 
-    		<p className="brand-name"> Brocollo and Co. </p>
+    		<p className="brand-name"> {props.BrandName} </p>
     	</header>
     );
 }

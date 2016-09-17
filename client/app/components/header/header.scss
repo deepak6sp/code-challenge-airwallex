@@ -5,8 +5,13 @@ header{
 	color:$white;
 	display:flex;
 	height:15vh;
+	@media (max-width: 600px){
+		justify-content:center;
+	}
 	.brand-name{
-		padding-left:10%;
+		@media (min-width: 600px){
+			padding-left:10%;
+		}
 		font-size:1.6rem;
 	}
 }

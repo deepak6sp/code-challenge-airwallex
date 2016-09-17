@@ -14,7 +14,7 @@ class Home extends Component {
         return ( 
         	<main>
         		<div>
-	        		<h1>A better way <br/>to enjoy every day.</h1>
+	        		<h1> A better way <br/>to enjoy every day. </h1>
 	        		<p> Be the first to know when we launch </p>
 	        		<Registration />
 	        	</div>

@@ -35,6 +35,7 @@ export function addSpinner(){
     img.id="picture";
     var spinner = document.getElementById("serverResponse");
     spinner.appendChild(img);
+    document.getElementById("button").innerHTML = "Sending. Please wait...";
 }
 
 
@@ -48,5 +49,6 @@ export function addServerError(){
 
 export function removeServerResponse(){
     document.getElementById("serverResponse").innerHTML = "";
+    document.getElementById("button").innerHTML = "Send";
 }
 

@@ -2,8 +2,5 @@ function noop() {
   return null;
 }
 
-require.extensions['.style'] = noop;
-// you can add whatever you wanna handle
+require.extensions['.styles'] = noop;
 require.extensions['.scss'] = noop;
-require.extensions['.png'] = noop;
-// ..etc

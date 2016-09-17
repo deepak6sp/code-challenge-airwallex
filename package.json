@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --hot --progress --colors --inline",
-    "test": "mocha --compilers js:babel-register,css:css-null-compiler.js --recursive ./client/app/**/*-specs.js ",
+    "test": "mocha --compilers js:babel-register,css:css-null-compiler.js --recursive ./client/**/*-specs.js ",
     "test:watch": "npm test -- --watch"
   },
   "author": "deepak prakash",
@@ -30,6 +30,7 @@
     "path": "^0.12.7",
     "postcss-loader": "^0.13.0",
     "sass-loader": "^4.0.2",
+    "sinon": "^1.17.5",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.15.1"

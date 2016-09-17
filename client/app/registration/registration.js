@@ -4,7 +4,7 @@ import './registration.scss';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from  "axios";
-import RegisterBox from 'react-modal';
+import RegisterModal from 'react-modal';
 import ThankYou from "./registration_thank_you";
 import UI from '../components/UIComponents/ui';
 import *  as FormValidations from "./registration_validations"; 
@@ -113,17 +113,18 @@ class Subscribe extends Component {
 	            		Placeholder="Confirm email"
 	            	/>
 	            </div>
+	           
+	            <UI.Button id="button"> Send </UI.Button>
 	            <div id="serverResponse"></div>
-	            <UI.Button> Send </UI.Button>
 	            
 	        </form>
 		} else {
 			showFormType = <ThankYou onClick={this.closeModal.bind(this)}/>
 		}
         return ( 
-        	<div>
+        	<div className="registration">
         		<UI.Button OnClick={this.openModal.bind(this)}> Request an invite </UI.Button>
-        		<RegisterBox
+        		<RegisterModal
 		          isOpen={this.state.modalIsOpen}
 		          onRequestClose={this.closeModal.bind(this)}
 		          shouldCloseOnOverlayClick={false}
@@ -131,7 +132,7 @@ class Subscribe extends Component {
 
 		          	{ showFormType }
 
-		        </RegisterBox>
+		        </RegisterModal>
         	</div>
         );
     }
