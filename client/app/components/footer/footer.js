@@ -6,7 +6,7 @@ const Footer = () => {
     return ( 
     	<footer> 
     		<div>
-        		<p> Made in Melbourne </p>
+        		<p class="make"> Made in Melbourne </p>
         		<p> @ 2016 Broccoli and Co. All rights reversed </p>
         	</div>
     	</footer>
