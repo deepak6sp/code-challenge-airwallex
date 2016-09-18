@@ -1,4 +1,4 @@
-import React,{ Component } from 'react';
+import React,{ Component, PropTypes } from 'react';
 import UI from '../components/UIComponents/ui';
 
 const ThankYou = (props) => {
@@ -12,5 +12,9 @@ const ThankYou = (props) => {
 	    </center>
     );
 }
+
+ThankYou.propTypes = {
+  onClick: PropTypes.func,
+};
 
 export default ThankYou;

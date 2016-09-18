@@ -5,12 +5,7 @@ import ReactDOM from 'react-dom';
 import Registration from '../registration/registration';
 
 
-class Home extends Component {
-	constructor(props){
-		super(props);
-	}
-
-    render() {
+const Home = (props) => {
         return ( 
         	<main>
         		<div>
@@ -20,7 +15,6 @@ class Home extends Component {
 	        	</div>
         	</main>
         );
-    }
 }
 
 export default Home

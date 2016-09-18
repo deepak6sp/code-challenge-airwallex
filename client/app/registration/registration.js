@@ -9,7 +9,7 @@ import ThankYou from "./registration_thank_you";
 import UI from '../components/UIComponents/ui';
 import *  as FormValidations from "./registration_validations"; 
 
-class Subscribe extends Component {
+class Registration extends Component {
 	constructor(props){
 		super(props);
 		this.state= {modalIsOpen : false, showForm : true, fullName:"", email: "", confirmEmail: "", errors: {}, count: 0};
@@ -138,4 +138,4 @@ class Subscribe extends Component {
     }
 }
 
-export default Subscribe
+export default Registration

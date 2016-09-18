@@ -19,7 +19,7 @@ describe("<Home />", () => {
 		expect(P.text()).to.contain('Be the first to know when we launch');
 	});
 
-	it('renders <Registration /> when passed in', () => {
+	it('should render <Registration /> when passed in', () => {
 	    const wrapper = shallow(<Home/>);
 	    expect(wrapper.contains(<Registration/>)).to.equal(true);
 	});
