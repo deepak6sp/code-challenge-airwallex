@@ -5,4 +5,4 @@
 3) $ npm install
 4) $ npm start -  this will run webapack dev server 
 5) on browser go to http://localhost:8080/webpack-dev-server/
-6) $ npm run test:watch to run tests
+6) $ npm test - this will run all tests
