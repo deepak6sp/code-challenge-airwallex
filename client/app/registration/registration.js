@@ -4,10 +4,12 @@ import './registration.scss';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from  "axios";
+
 import RegisterModal from 'react-modal';
 import ThankYou from "./registration_thank_you";
 import UI from '../components/UIComponents/ui';
-import *  as FormValidations from "./registration_validations"; 
+import *  as FormValidations from "./registration_validations";
+import *  as Utils from "./registration_utils";  
 
 class Registration extends Component {
 	constructor(props){
@@ -20,12 +22,12 @@ class Registration extends Component {
 		    name: this.state.fullName,
 		    email: this.state.email
 		}).then(response => {
-			FormValidations.removeServerResponse();
+			Utils.removeServerResponse();
 			this.setState({showForm: false});
 		})
 		.catch(function (error) {
-			FormValidations.removeServerResponse();
-			FormValidations.addServerError();
+			Utils.removeServerResponse();
+			Utils.addServerError();
 		});
 	}
 
@@ -61,9 +63,9 @@ class Registration extends Component {
 		e.preventDefault();
 		var errors = FormValidations.validate(this.state.fullName, this.state.email, this.state.confirmEmail);
 		this.setState({errors : errors});
-		FormValidations.removeServerResponse();
+		Utils.removeServerResponse();
 		if (Object.keys(errors).length == 0){
-			FormValidations.addSpinner();
+			Utils.addSpinner();
 			this.callServer();
 		} else {
 			this.setState({count : 1});

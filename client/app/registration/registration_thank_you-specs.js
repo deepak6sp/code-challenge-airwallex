@@ -7,20 +7,20 @@ import ThankYou from '../registration/registration_thank_you';
 
 
 describe("<ThankYou />", () => {
-
+   	let wrapper;
+	beforeEach(() => {
+		wrapper = shallow(<ThankYou/>);
+	});
 	it("should have class thankyou", () =>{
-		const wrapper = shallow(<ThankYou/>);
 		expect(wrapper.find(".thankyou")).to.have.length(1);
 	});
 
 	it("h3 should show text ", () =>{
-		const wrapper = shallow(<ThankYou/>);
 		const h3 = wrapper.find('h3');
 		expect(h3.text()).to.contain('All done!');
 	});
 
 	it("p should show text ", () =>{
-		const wrapper = shallow(<ThankYou/>);
 		const P = wrapper.find('p');
 		expect(P.text()).to.contain('You will be one of the first to experience Brocoli & Co. when we launch');
 	});

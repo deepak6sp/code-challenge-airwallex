@@ -4,14 +4,15 @@ import Footer from "./footer";
 import { shallow, render } from 'enzyme';
 
 describe("<Footer />", () => {
-
+	let wrapper;
+	beforeEach(() => {
+		wrapper = shallow(<Footer/>);
+	});
 	it('renders two `p`s', () => {
-	    const wrapper = render(<Footer />);
 	    expect(wrapper.find('p').length).to.equal(2);
 	});
 
 	it("p with heart should display text", () =>{
-		const wrapper = shallow(<Footer/>);
 		const P = wrapper.find('.footerTitle');
 		expect(P.text()).to.contain('Made with in Melbourne');
 	});
