@@ -16,8 +16,9 @@ class Registration extends Component {
 		super(props);
 		this.state= {modalIsOpen : false, showForm : true, fullName:"", email: "", confirmEmail: "", errors: {}, count: 0};
 	}
-
-	callServer(){
+    
+    // this will call server - if true change the current form to thankyou page or display error
+ 	callServer(){
 		axios.post('https://l94wc2001h.execute-api.ap-southeast-2.amazonaws.com/prod/fake-auth', {
 		    name: this.state.fullName,
 		    email: this.state.email
@@ -39,6 +40,7 @@ class Registration extends Component {
 	    this.setState({modalIsOpen: false, errors: {}, showForm: true, fullName:"", email: "", confirmEmail: "" });
 	}
 
+	// create objects and change the the state of name and email
 	handleChange(e){
 		var state = {}, count = 0;
 	    state[e.target.name] =  e.target.value;
@@ -52,6 +54,7 @@ class Registration extends Component {
 		}
 	}
 
+	// prevent page close from pressing enter button
 	handleKeyDown(e){
 		if(e.keyCode=='13' || e.which == '13'){
             e.preventDefault();
@@ -59,6 +62,7 @@ class Registration extends Component {
         }
 	}
 
+	//submit from on button click
 	formSubmit(e){
 		e.preventDefault();
 		var errors = FormValidations.validate(this.state.fullName, this.state.email, this.state.confirmEmail);
@@ -74,7 +78,7 @@ class Registration extends Component {
 
     render() {
     	var showFormType = "";
-		if (this.state.showForm){
+		if (this.state.showForm){   // show user form if true else show thankyou page
 			showFormType = <form onSubmit = {this.formSubmit.bind(this)}>
 				<UI.Button OnClick={this.closeModal.bind(this)} className="close">X</UI.Button>
 	          	<h3>Request an invite</h3>
@@ -126,13 +130,14 @@ class Registration extends Component {
         return ( 
         	<div className="registration">
         		<UI.Button OnClick={this.openModal.bind(this)}> Request an invite </UI.Button>
+        		{/*using popop from react-modal library*/}
         		<RegisterModal
 		          isOpen={this.state.modalIsOpen}
 		          onRequestClose={this.closeModal.bind(this)}
 		          shouldCloseOnOverlayClick={false}
 		          style={customStyles} >
 
-		          	{ showFormType }
+		          	{showFormType} {/*show user form if true else show thankyou page */}
 
 		        </RegisterModal>
         	</div>

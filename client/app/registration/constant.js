@@ -1,3 +1,4 @@
+// this is used by react-modal
 export const customStyles = {
 	overlay : {
 		backgroundColor   : 'rgba(0, 0, 0, 0.6)'
