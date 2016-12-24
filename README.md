@@ -7,6 +7,7 @@
 3) $ npm install
 
 //for dev mode
+
 4) $ npm start -  this will run webapack dev server
 
 5) on browser go to http://localhost:8080/webpack-dev-server/
