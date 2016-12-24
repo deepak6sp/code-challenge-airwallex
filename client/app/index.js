@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom';
 import Header from "./components/header/header.js";
 import Footer from "./components/footer/footer.js";
 import Home from "./home/home.js";
+import "./index.scss";
 
 class App extends Component {
     render() {
-        return ( 
+        return (
         	<div>
         		<Header BrandName="Brocollo and Co."/>
         		<Home />
@@ -15,5 +16,5 @@ class App extends Component {
         );
     }
 }
- 
-ReactDOM.render(<App />,document.getElementById("main")); 
+
+ReactDOM.render(<App />,document.getElementById("main"));
