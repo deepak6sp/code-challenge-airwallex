@@ -8,7 +8,7 @@ module.exports = {
   output: {
     path: __dirname,
     publicPath: '/',
-    filename: 'app.js'
+    filename: 'build/app.js'
   },
   module: {
     loaders: [
@@ -16,8 +16,12 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel'
       },{
+        /*
         test: /\.scss$/,
         loaders: ["style", "css?sourceMap", "sass?sourceMap"]
+        */
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract("style", "css!sass")
       }
     ]
   },
@@ -29,7 +33,7 @@ module.exports = {
   },
    // This plugin moves all the CSS into a separate stylesheet
   plugins: [
-    new ExtractTextPlugin('app.css')
+    new ExtractTextPlugin('build/app.css')
   ],
   devServer: {
     contentBase: './'
