@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --hot --progress --colors --inline",
+    "start": "webpack-dev-server --hot --progress --colors --inline --port 9000",
     "build": "webpack -p --config ./webpack.prod.config.js",
     "test": "mocha --compilers js:babel-register,css:css-null-compiler.js --recursive ./client/**/*-specs.js ",
     "test:watch": "npm test -- --watch"
