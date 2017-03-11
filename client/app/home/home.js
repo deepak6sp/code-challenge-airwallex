@@ -9,7 +9,7 @@ const Home = (props) => {
         return (
         	<main>
         		<div>
-	        		<h1> A better way <br/>to enjy every day. </h1>
+	        		<h1> A better way <br/>to eny every day. </h1>
 	        		<p> Be the first to know when we launch </p>
 	        		<Registration />
 	        	</div>
